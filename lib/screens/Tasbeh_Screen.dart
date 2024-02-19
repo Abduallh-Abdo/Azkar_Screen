@@ -9,6 +9,7 @@ class Tasbeh extends StatefulWidget {
 
 class _TasbehState extends State<Tasbeh> {
   int counter = 0;
+  int allCounter = 0;
   List<String> statments = [
     'صلى على النبى',
     'سبحان الله',
@@ -94,75 +95,75 @@ class _TasbehState extends State<Tasbeh> {
                 ),
               ),
             ),
-            DropdownMenu(
-              hintText: 'صلى على النبى',
-              width: 310,
-              initialSelection: statments[0],
-              textStyle: const TextStyle(
-                color: Color(0xffFFE086),
-                fontSize: 24,
-                fontFamily: 'Rakkas',
-                fontWeight: FontWeight.bold,
-              ),
-              menuStyle: const MenuStyle(
-                backgroundColor: MaterialStatePropertyAll(
-                  Color(0xff333337),
-                ),
-              ),
-              dropdownMenuEntries: statments.map((item) {
-                return DropdownMenuEntry<String>(
-                  label: item,
-                  value: item,
-                  style: MenuItemButton.styleFrom(
-                    textStyle: const TextStyle(
-                      fontSize: 24,
-                      fontFamily: 'Rakkas',
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xffFFE086),
-                    ),
-                    foregroundColor: const Color(0xffFFE086),
-                  ),
-                );
-              }).toList(),
-            ),
-
-            // Container(
-            //   alignment: Alignment.center,
-            //   width: 295,
-            //   height: 50,
-            //   margin: const EdgeInsets.symmetric(vertical: 20),
-            //   decoration: BoxDecoration(
-            //     borderRadius: BorderRadius.circular(10),
-            //     color: const Color(0xff333337),
+            // DropdownMenu(
+            //   hintText: 'صلى على النبى',
+            //   width: 310,
+            //   initialSelection: statments[0],
+            //   textStyle: const TextStyle(
+            //     color: Color(0xffFFE086),
+            //     fontSize: 24,
+            //     fontFamily: 'Rakkas',
+            //     fontWeight: FontWeight.bold,
             //   ),
-            //   child: const Text(
-            //     'صلى على النبى',
-            //     style: TextStyle(
-            //       fontSize: 24,
-            //       fontFamily: 'Rakkas',
-            //       color: Color(0xffFFE086),
+            //   menuStyle: const MenuStyle(
+            //     backgroundColor: MaterialStatePropertyAll(
+            //       Color(0xff333337),
             //     ),
             //   ),
+            //   dropdownMenuEntries: statments.map((item) {
+            //     return DropdownMenuEntry<String>(
+            //       label: item,
+            //       value: item,
+            //       style: MenuItemButton.styleFrom(
+            //         textStyle: const TextStyle(
+            //           fontSize: 24,
+            //           fontFamily: 'Rakkas',
+            //           fontWeight: FontWeight.bold,
+            //           color: Color(0xffFFE086),
+            //         ),
+            //         foregroundColor: const Color(0xffFFE086),
+            //       ),
+            //     );
+            //   }).toList(),
             // ),
+
+            Container(
+              alignment: Alignment.center,
+              width: 295,
+              height: 50,
+              margin: const EdgeInsets.symmetric(vertical: 20),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: const Color(0xff333337),
+              ),
+              child: Text(
+                '$allCounter  مجموع التسبحات',
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontFamily: 'Rakkas',
+                  color: Color(0xffFFE086),
+                ),
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.only(bottom: 30.0, top: 30),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Container(
-                    alignment: Alignment.center,
-                    width: 138,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: const Color(0xffFFD763),
-                    ),
-                    child: TextButton(
-                      onPressed: () {
-                        setState(() {
-                          counter = 0;
-                        });
-                      },
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        counter = 0;
+                      });
+                    },
+                    child: Container(
+                      alignment: Alignment.center,
+                      width: 138,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: const Color(0xffFFD763),
+                      ),
                       child: const Text(
                         'تصفير',
                         style: TextStyle(
@@ -174,20 +175,21 @@ class _TasbehState extends State<Tasbeh> {
                       ),
                     ),
                   ),
-                  Container(
-                    alignment: Alignment.center,
-                    width: 138,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: const Color(0xff333337),
-                    ),
-                    child: TextButton(
-                      onPressed: () {
-                        setState(() {
-                          counter++;
-                        });
-                      },
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        counter++;
+                        allCounter++;
+                      });
+                    },
+                    child: Container(
+                      alignment: Alignment.center,
+                      width: 138,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: const Color(0xff333337),
+                      ),
                       child: const Text(
                         'تسبيحه',
                         style: TextStyle(
